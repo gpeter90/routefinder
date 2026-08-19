@@ -14,7 +14,7 @@ import java.time.LocalDateTime;
 @Setter
 @ToString(callSuper = true)
 public class TrackingDto {
-    private Integer parcelId;
+    private Long parcelId;
     private LocalDateTime eventDate;
-    private Short eventId;
+    private Long eventId;
 }

@@ -1,9 +1,7 @@
 package com.shipping.demo.controller.rest;
 
-import com.shipping.demo.usecase.getclients.GetClientsRequest;
 import com.shipping.demo.usecase.getclients.GetClientsResponse;
 import com.shipping.demo.usecase.getclients.GetClientsUseCase;
-import com.shipping.demo.usecase.getparcels.GetParcelsRequest;
 import com.shipping.demo.usecase.getparcels.GetParcelsResponse;
 import com.shipping.demo.usecase.getparcels.GetParcelsUseCase;
 import com.shipping.demo.usecase.getparcelsbyaddress.GetParcelsByAddresseeRequest;
@@ -39,22 +37,20 @@ public class ShippingController {
 
     @GetMapping(value = "clients")
     @ResponseStatus(HttpStatus.OK)
-    ResponseEntity<GetClientsResponse> getClients(
-            @RequestBody GetClientsRequest request) {
+    ResponseEntity<GetClientsResponse> getClients() {
         return ResponseEntity
                 .status(HttpStatus.OK)
                 .contentType(MediaType.APPLICATION_JSON)
-                .body(getClientsUseCase.execute(request));
+                .body(getClientsUseCase.execute(null));
     }
 
     @GetMapping(value = "parcels")
     @ResponseStatus(HttpStatus.OK)
-    ResponseEntity<GetParcelsResponse> getParcels(
-            @RequestBody GetParcelsRequest request) {
+    ResponseEntity<GetParcelsResponse> getParcels() {
         return ResponseEntity
                 .status(HttpStatus.OK)
                 .contentType(MediaType.APPLICATION_JSON)
-                .body(getParcelsUseCase.execute(request));
+                .body(getParcelsUseCase.execute(null));
     }
 
     @GetMapping(value = "parcels/sender")

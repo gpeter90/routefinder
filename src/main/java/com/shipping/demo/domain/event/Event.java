@@ -16,7 +16,7 @@ import lombok.experimental.SuperBuilder;
 @SuperBuilder
 @NoArgsConstructor
 @Getter
-public class Event {
+class Event {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

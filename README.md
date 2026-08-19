@@ -1,99 +1,97 @@
 # Shipping
 
-Csomagküldő alkalmazás Spring Boot alapokon.
+A parcel shipping application built with Spring Boot.
 
-## Technológiák
+## Technologies
 
 - Java 21
 - Spring Boot 3.4.1
 - Spring Security (Basic Auth)
 - Spring Data JPA
-- H2 in-memory adatbázis
+- H2 in-memory database
 - Maven
 - Docker
 
-## Futtatás
+## Running
 
-### Maven-nel lokálisan
+### Locally with Maven
 
 ```bash
 mvn package -DskipTests
 java -jar target/shipping-0.0.1-SNAPSHOT.jar
 ```
 
-Az alkalmazás elérhető: `http://localhost:8080`
+Application available at: `http://localhost:8080`
 
-### Docker Compose-zal
+### With Docker Compose
 
 ```bash
 docker-compose up --build
 ```
 
-Az alkalmazás elérhető: `http://localhost:8081`
+Application available at: `http://localhost:8081`
 
-## Authentikáció
+## Authentication
 
-Az API végpontok Basic Auth-tal védettek.
+API endpoints are protected with Basic Auth.
 
-| Felhasználónév | Jelszó |
+| Username | Password |
 |---|---|
 | admin | admin |
 
-## H2 Konzol
+## H2 Console
 
-Elérhető authentikáció nélkül: `http://localhost:8080/h2-console`
+Available without authentication: `http://localhost:8080/h2-console`
 
 - JDBC URL: `jdbc:h2:mem:shipping`
 - Username: `sa`
-- Password: (üres)
+- Password: (empty)
 
-## API Végpontok
+## API Endpoints
 
-Alap útvonal: `/shipping`
+Base path: `/shipping`
 
-### Ügyfelek lekérdezése
+### Get all clients
 
-| Tulajdonság | Érték |
+| Property | Value |
 |---|---|
-| Végpont | `GET /shipping/clients` |
-| Leírás | Az összes ügyfél lekérdezése |
-| Request body | `GetClientsRequest` (üres) |
-| Response | `GetClientsResponse` — ügyfelek listája |
+| Endpoint | `GET /shipping/clients` |
+| Description | Retrieve all clients |
+| Request body | none |
+| Response | `GetClientsResponse` — list of clients |
 
-### Csomagok lekérdezése
+### Get all parcels
 
-| Tulajdonság | Érték |
+| Property | Value |
 |---|---|
-| Végpont | `GET /shipping/parcels` |
-| Leírás | Az összes csomag lekérdezése |
-| Request body | `GetParcelsRequest` (üres) |
-| Response | `GetParcelsResponse` — csomagok listája |
+| Endpoint | `GET /shipping/parcels` |
+| Description | Retrieve all parcels |
+| Request body | none |
+| Response | `GetParcelsResponse` — list of parcels |
 
-### Csomagok feladó szerint
+### Get parcels by sender
 
-| Tulajdonság | Érték |
+| Property | Value |
 |---|---|
-| Végpont | `GET /shipping/parcels/sender` |
-| Leírás | Csomagok lekérdezése feladó azonosító alapján |
-| Request body | `GetParcelsBySenderRequest` — `senderId` (kötelező) |
-| Response | `GetParcelsBySenderResponse` — csomagok listája |
+| Endpoint | `GET /shipping/parcels/sender` |
+| Description | Retrieve parcels by sender ID |
+| Request body | `GetParcelsBySenderRequest` — `senderId` (required) |
+| Response | `GetParcelsBySenderResponse` — list of parcels |
 
-### Csomagok címzett szerint
+### Get parcels by addressee
 
-| Tulajdonság | Érték |
+| Property | Value |
 |---|---|
-| Végpont | `GET /shipping/parcels/addressee` |
-| Leírás | Csomagok lekérdezése címzett azonosító alapján |
-| Request body | `GetParcelsByAddresseeRequest` — `addresseeId` (kötelező) |
-| Response | `GetParcelsByAddresseeResponse` — csomagok listája |
+| Endpoint | `GET /shipping/parcels/addressee` |
+| Description | Retrieve parcels by addressee ID |
+| Request body | `GetParcelsByAddresseeRequest` — `addresseeId` (required) |
+| Response | `GetParcelsByAddresseeResponse` — list of parcels |
 
-### Csomag eseményei
+### Get parcel events
 
-| Tulajdonság | Érték |
+| Property | Value |
 |---|---|
-| Végpont | `GET /shipping/parcels/events` |
-| Leírás | Egy csomag követési eseményeinek lekérdezése |
-| Request body | `GetParcelsEventsRequest` — `parcelId` (kötelező) |
-| Response | `GetParcelsEventsResponse` — események listája |
-
-
+| Endpoint | `GET /shipping/parcels/events` |
+| Description | Retrieve tracking events for a parcel |
+| Request body | `GetParcelsEventsRequest` — `parcelId` (required) |
+| Response | `GetParcelsEventsResponse` — list of tracking events |

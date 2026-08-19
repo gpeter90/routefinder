@@ -14,7 +14,7 @@ import lombok.experimental.SuperBuilder;
 @SuperBuilder
 @NoArgsConstructor
 @Getter
-public class Client extends BaseEntity {
+class Client extends BaseEntity {
 
     @Column(name = DatabaseConstants.FieldName.Client.CLIENT_NAME, nullable = false, length = 100)
     private String clientName;

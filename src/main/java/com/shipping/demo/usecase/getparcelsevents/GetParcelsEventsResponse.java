@@ -1,5 +1,6 @@
 package com.shipping.demo.usecase.getparcelsevents;
 
+import com.shipping.demo.domain.tracking.TrackingDto;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.ToString;
@@ -11,5 +12,5 @@ import java.util.List;
 @ToString
 public class GetParcelsEventsResponse {
 
-    private List<?> events;
+    private List<TrackingDto> events;
 }

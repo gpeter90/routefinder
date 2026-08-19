@@ -11,5 +11,5 @@ import lombok.ToString;
 public class GetParcelsEventsRequest {
 
     @MandatoryField
-    private Integer parcelId;
+    private Long parcelId;
 }
