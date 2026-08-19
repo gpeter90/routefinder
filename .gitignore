@@ -30,3 +30,4 @@ replay_pid*
 
 ### Maven ###
 .mvn/wrapper/maven-wrapper.jar
+/.kiro/
