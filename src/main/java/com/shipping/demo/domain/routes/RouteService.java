@@ -1,4 +1,4 @@
-package com.shipping.demo.domain.route;
+package com.shipping.demo.domain.routes;
 
 import com.shipping.demo.common.domain.DomainService;
 import lombok.RequiredArgsConstructor;
@@ -28,7 +28,7 @@ public class RouteService extends DomainService<RouteDto> {
                 .departureCityId(route.getDepartureCityId())
                 .arrivalCityId(route.getArrivalCityId())
                 .distanceKm(route.getDistanceKm())
-                .costEur(route.getCostEur())
+                .travelTimeMin(route.getTravelTimeMin())
                 .build();
     }
 
@@ -37,7 +37,7 @@ public class RouteService extends DomainService<RouteDto> {
                 .departureCityId(routeDto.getDepartureCityId())
                 .arrivalCityId(routeDto.getArrivalCityId())
                 .distanceKm(routeDto.getDistanceKm())
-                .costEur(routeDto.getCostEur())
+                .travelTimeMin(routeDto.getTravelTimeMin())
                 .build();
     }
 }

@@ -1,6 +1,6 @@
 package com.shipping.demo.usecase.getcities;
 
-import com.shipping.demo.domain.city.CityDto;
+import com.shipping.demo.domain.cities.CityDto;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.ToString;

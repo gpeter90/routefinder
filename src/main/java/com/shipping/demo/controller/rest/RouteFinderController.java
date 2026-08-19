@@ -3,6 +3,8 @@ package com.shipping.demo.controller.rest;
 import com.shipping.demo.common.rest.ErrorResponse;
 import com.shipping.demo.usecase.getcities.GetCitiesResponse;
 import com.shipping.demo.usecase.getcities.GetCitiesUseCase;
+import com.shipping.demo.usecase.getroutes.GetRoutesResponse;
+import com.shipping.demo.usecase.getroutes.GetRoutesUseCase;
 import com.shipping.demo.usecase.getshortestroute.GetShortestRouteRequest;
 import com.shipping.demo.usecase.getshortestroute.GetShortestRouteResponse;
 import com.shipping.demo.usecase.getshortestroute.GetShortestRouteUseCase;
@@ -22,12 +24,13 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RequiredArgsConstructor
 @RestController
-@RequestMapping(RouteController.ROUTE_API_PATH)
-@Tag(name = "Route Finder", description = "Airline route management and shortest path calculation using Dijkstra algorithm")
-public class RouteController {
-    public static final String ROUTE_API_PATH = "route";
+@RequestMapping(RouteFinderController.ROUTE_FINDER_API_PATH)
+@Tag(name = "Route Finder", description = "Airline route management and least cost path calculation using Dijkstra algorithm")
+public class RouteFinderController {
+    public static final String ROUTE_FINDER_API_PATH = "routefinder";
 
     private final GetCitiesUseCase getCitiesUseCase;
+    private final GetRoutesUseCase getRoutesUseCase;
     private final GetShortestRouteUseCase getShortestRouteUseCase;
 
     @GetMapping(value = "cities")
@@ -46,14 +49,32 @@ public class RouteController {
                 .body(getCitiesUseCase.execute(null));
     }
 
+    @GetMapping(value = "routes")
+    @ResponseStatus(HttpStatus.OK)
+    @Operation(
+            summary = "Get all routes",
+            description = "Returns all available routes with departure city, arrival city, distance in km "
+                    + "and travel time in minutes (cost)"
+    )
+    @ApiResponse(responseCode = "200", description = "Routes retrieved successfully")
+    @ApiResponse(responseCode = "401", description = "Unauthorized - invalid credentials",
+            content = @Content(schema = @Schema(implementation = ErrorResponse.class)))
+    ResponseEntity<GetRoutesResponse> getRoutes() {
+        return ResponseEntity
+                .status(HttpStatus.OK)
+                .contentType(MediaType.APPLICATION_JSON)
+                .body(getRoutesUseCase.execute(null));
+    }
+
     @GetMapping(value = "shortest")
     @ResponseStatus(HttpStatus.OK)
     @Operation(
-            summary = "Find shortest route",
-            description = "Finds the shortest route between two cities using Dijkstra algorithm. "
-                    + "Returns the path, total distance in km and total cost in EUR."
+            summary = "Find least cost route",
+            description = "Finds the least cost route between two cities using Dijkstra algorithm. "
+                    + "Cost is measured in travel time (minutes). Returns the path, total distance in km "
+                    + "and total travel time in minutes."
     )
-    @ApiResponse(responseCode = "200", description = "Shortest route found successfully")
+    @ApiResponse(responseCode = "200", description = "Least cost route found successfully")
     @ApiResponse(responseCode = "400", description = "Invalid request - missing or invalid city IDs",
             content = @Content(schema = @Schema(implementation = ErrorResponse.class)))
     @ApiResponse(responseCode = "401", description = "Unauthorized - invalid credentials",

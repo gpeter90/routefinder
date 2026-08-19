@@ -1,4 +1,4 @@
-package com.shipping.demo.domain.client;
+package com.shipping.demo.domain.cities;
 
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
@@ -11,11 +11,9 @@ import lombok.experimental.SuperBuilder;
 @Getter
 @Setter
 @ToString(callSuper = true)
-public class ClientDto {
-    private String clientName;
-    private String address;
-    private String zipcode;
-    private String city;
-    private String phone;
-    private String email;
+public class CityDto {
+    private Long id;
+    private String cityName;
+    private String country;
+    private String continent;
 }

@@ -6,10 +6,10 @@ import com.shipping.demo.common.usecase.UseCase;
 import com.shipping.demo.common.usecase.UseCaseWithExtraValidation;
 import com.shipping.demo.common.validator.MandatoryFieldValidator;
 import com.shipping.demo.common.validator.Validator;
-import com.shipping.demo.domain.city.CityDto;
-import com.shipping.demo.domain.city.CityService;
-import com.shipping.demo.domain.route.RouteDto;
-import com.shipping.demo.domain.route.RouteService;
+import com.shipping.demo.domain.cities.CityDto;
+import com.shipping.demo.domain.cities.CityService;
+import com.shipping.demo.domain.routes.RouteDto;
+import com.shipping.demo.domain.routes.RouteService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
@@ -57,7 +57,7 @@ public class GetShortestRouteUseCase extends UseCase<GetShortestRouteRequest, Ge
     protected GetShortestRouteResponse executeBusinessLogic(GetShortestRouteRequest request) {
         List<RouteDto> routes = routeService.findAll();
 
-        DijkstraResult dijkstraResult = dijkstraPathFinder.findShortestPath(
+        DijkstraResult dijkstraResult = dijkstraPathFinder.findLeastCostPath(
                 routes,
                 request.getDepartureCityId(),
                 request.getArrivalCityId()
@@ -74,7 +74,7 @@ public class GetShortestRouteUseCase extends UseCase<GetShortestRouteRequest, Ge
         return GetShortestRouteResponse.builder()
                 .path(pathCities)
                 .totalDistanceKm(dijkstraResult.getTotalDistanceKm())
-                .totalCostEur(dijkstraResult.getTotalCostEur())
+                .totalTravelTimeMin(dijkstraResult.getTotalTravelTimeMin())
                 .build();
     }
 }

@@ -1,4 +1,4 @@
-package com.shipping.demo.domain.parcel;
+package com.shipping.demo.domain.routes;
 
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
@@ -11,8 +11,11 @@ import lombok.experimental.SuperBuilder;
 @Getter
 @Setter
 @ToString(callSuper = true)
-public class ParcelDto {
-    private Long senderId;
-    private Long receiverId;
-    private String parcelNo;
+public class RouteDto {
+
+    private Long id;
+    private Long departureCityId;
+    private Long arrivalCityId;
+    private Integer distanceKm;
+    private Integer travelTimeMin;
 }

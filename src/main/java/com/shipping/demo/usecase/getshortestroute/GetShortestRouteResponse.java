@@ -1,6 +1,6 @@
 package com.shipping.demo.usecase.getshortestroute;
 
-import com.shipping.demo.domain.city.CityDto;
+import com.shipping.demo.domain.cities.CityDto;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.ToString;
@@ -14,5 +14,5 @@ public class GetShortestRouteResponse {
 
     private List<CityDto> path;
     private int totalDistanceKm;
-    private int totalCostEur;
+    private int totalTravelTimeMin;
 }

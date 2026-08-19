@@ -11,5 +11,5 @@ public class DijkstraResult {
 
     private List<Long> pathCityIds;
     private int totalDistanceKm;
-    private int totalCostEur;
+    private int totalTravelTimeMin;
 }

@@ -11,10 +11,10 @@
         <relativePath/>
     </parent>
 
-    <groupId>com.shipping</groupId>
-    <artifactId>shipping</artifactId>
+    <groupId>com.routefinder</groupId>
+    <artifactId>routefinder</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>shipping</name>
+    <name>routefinder</name>
 
     <properties>
         <java.version>21</java.version>

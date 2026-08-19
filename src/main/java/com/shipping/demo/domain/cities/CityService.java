@@ -1,4 +1,4 @@
-package com.shipping.demo.domain.city;
+package com.shipping.demo.domain.cities;
 
 import com.shipping.demo.common.domain.DomainService;
 import lombok.RequiredArgsConstructor;

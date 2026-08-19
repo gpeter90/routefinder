@@ -1,4 +1,4 @@
-package com.shipping.demo.domain.route;
+package com.shipping.demo.domain.routes;
 
 import com.shipping.demo.common.domain.BaseEntity;
 import com.shipping.demo.common.util.DatabaseConstants;
@@ -10,7 +10,7 @@ import lombok.NoArgsConstructor;
 import lombok.experimental.SuperBuilder;
 
 @Entity
-@Table(name = DatabaseConstants.TableName.ROUTES, schema = DatabaseConstants.SchemaName.AIRLINE)
+@Table(name = DatabaseConstants.TableName.ROUTES, schema = DatabaseConstants.SchemaName.ROUTEFINDER)
 @SuperBuilder
 @NoArgsConstructor
 @Getter
@@ -25,6 +25,6 @@ class Route extends BaseEntity {
     @Column(name = DatabaseConstants.FieldName.Route.DISTANCE_KM, nullable = false)
     private Integer distanceKm;
 
-    @Column(name = DatabaseConstants.FieldName.Route.COST_EUR, nullable = false)
-    private Integer costEur;
+    @Column(name = DatabaseConstants.FieldName.Route.TRAVEL_TIME_MIN, nullable = false)
+    private Integer travelTimeMin;
 }

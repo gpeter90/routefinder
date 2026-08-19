@@ -1,4 +1,4 @@
-package com.shipping.demo.domain.route;
+package com.shipping.demo.domain.routes;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 

@@ -1,4 +1,4 @@
-package com.shipping.demo.domain.city;
+package com.shipping.demo.domain.cities;
 
 import com.shipping.demo.common.domain.BaseEntity;
 import com.shipping.demo.common.util.DatabaseConstants;
@@ -10,7 +10,7 @@ import lombok.NoArgsConstructor;
 import lombok.experimental.SuperBuilder;
 
 @Entity
-@Table(name = DatabaseConstants.TableName.CITIES, schema = DatabaseConstants.SchemaName.AIRLINE)
+@Table(name = DatabaseConstants.TableName.CITIES, schema = DatabaseConstants.SchemaName.ROUTEFINDER)
 @SuperBuilder
 @NoArgsConstructor
 @Getter

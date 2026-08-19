@@ -15,8 +15,8 @@ public class OpenApiConfig {
     public OpenAPI shippingOpenAPI() {
         return new OpenAPI()
                 .info(new Info()
-                        .title("Shipping & Route Finder API")
-                        .description("REST API for parcel tracking and airline route finding with Dijkstra algorithm")
+                        .title("RouteFinder API")
+                        .description("REST API for airline route finding with Dijkstra algorithm")
                         .version("1.0.0"))
                 .addSecurityItem(new SecurityRequirement().addList("basicAuth"))
                 .components(new Components()

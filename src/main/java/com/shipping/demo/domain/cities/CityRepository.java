@@ -1,4 +1,4 @@
-package com.shipping.demo.domain.city;
+package com.shipping.demo.domain.cities;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 

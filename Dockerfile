@@ -24,5 +24,5 @@ FROM debian AS runtime
 COPY --from=builder /opt/jdk-21.0.1 /opt/jdk-21.0.1
 ENV PATH=$PATH:/opt/jdk-21.0.1/bin
 
-COPY --from=builder /app/target/shipping-0.0.1-SNAPSHOT.jar application.jar
+COPY --from=builder /app/target/routefinder-0.0.1-SNAPSHOT.jar application.jar
 ENTRYPOINT ["java", "-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=*:8000", "-jar", "application.jar"]

@@ -1,8 +1,8 @@
 package com.shipping.demo.usecase.getcities;
 
 import com.shipping.demo.common.usecase.UseCase;
-import com.shipping.demo.domain.city.CityDto;
-import com.shipping.demo.domain.city.CityService;
+import com.shipping.demo.domain.cities.CityDto;
+import com.shipping.demo.domain.cities.CityService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;

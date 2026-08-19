@@ -19,7 +19,7 @@
         </filter>
         <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
             <fileNamePattern>${LOG_DIR}/debug.%d{yyyy-MM-dd}.%i.log</fileNamePattern>
-            <maxFileSize>1MB</maxFileSize>
+            <maxFileSize>100KB</maxFileSize>
             <maxHistory>30</maxHistory>
             <totalSizeCap>50MB</totalSizeCap>
         </rollingPolicy>
@@ -37,7 +37,7 @@
         </filter>
         <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
             <fileNamePattern>${LOG_DIR}/info.%d{yyyy-MM-dd}.%i.log</fileNamePattern>
-            <maxFileSize>1MB</maxFileSize>
+            <maxFileSize>100KB</maxFileSize>
             <maxHistory>30</maxHistory>
             <totalSizeCap>50MB</totalSizeCap>
         </rollingPolicy>
@@ -55,7 +55,7 @@
         </filter>
         <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
             <fileNamePattern>${LOG_DIR}/error.%d{yyyy-MM-dd}.%i.log</fileNamePattern>
-            <maxFileSize>1MB</maxFileSize>
+            <maxFileSize>100KB</maxFileSize>
             <maxHistory>30</maxHistory>
             <totalSizeCap>50MB</totalSizeCap>
         </rollingPolicy>
