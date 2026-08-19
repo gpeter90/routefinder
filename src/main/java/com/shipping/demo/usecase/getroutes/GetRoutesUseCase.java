@@ -24,7 +24,7 @@ public class GetRoutesUseCase extends UseCase<Void, GetRoutesResponse> {
         List<RouteDto> routes = routeService.findAll();
 
         List<RouteDetailDto> routeDetails = routes.stream()
-                .map(this::mapToRouteDetail)
+                .map(this::generateRouteDetail)
                 .toList();
 
         return GetRoutesResponse.builder()
@@ -32,7 +32,7 @@ public class GetRoutesUseCase extends UseCase<Void, GetRoutesResponse> {
                 .build();
     }
 
-    private RouteDetailDto mapToRouteDetail(RouteDto route) {
+    private RouteDetailDto generateRouteDetail(RouteDto route) {
         CityDto departureCity = cityService.findById(route.getDepartureCityId());
         CityDto arrivalCity = cityService.findById(route.getArrivalCityId());
 
