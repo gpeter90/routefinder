@@ -18,7 +18,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
@@ -55,8 +54,7 @@ public class ShippingController {
 
     @GetMapping(value = "parcels/sender")
     @ResponseStatus(HttpStatus.OK)
-    ResponseEntity<GetParcelsBySenderResponse> getParcelsBySender(
-            @RequestBody GetParcelsBySenderRequest request) {
+    ResponseEntity<GetParcelsBySenderResponse> getParcelsBySender(GetParcelsBySenderRequest request) {
         return ResponseEntity
                 .status(HttpStatus.OK)
                 .contentType(MediaType.APPLICATION_JSON)
@@ -65,8 +63,7 @@ public class ShippingController {
 
     @GetMapping(value = "parcels/addressee")
     @ResponseStatus(HttpStatus.OK)
-    ResponseEntity<GetParcelsByAddresseeResponse> getParcelsByAddressee(
-            @RequestBody GetParcelsByAddresseeRequest request) {
+    ResponseEntity<GetParcelsByAddresseeResponse> getParcelsByAddressee(GetParcelsByAddresseeRequest request) {
         return ResponseEntity
                 .status(HttpStatus.OK)
                 .contentType(MediaType.APPLICATION_JSON)
@@ -75,8 +72,7 @@ public class ShippingController {
 
     @GetMapping(value = "parcels/events")
     @ResponseStatus(HttpStatus.OK)
-    ResponseEntity<GetParcelsEventsResponse> getParcelsEvents(
-            @RequestBody GetParcelsEventsRequest request) {
+    ResponseEntity<GetParcelsEventsResponse> getParcelsEvents(GetParcelsEventsRequest request) {
         return ResponseEntity
                 .status(HttpStatus.OK)
                 .contentType(MediaType.APPLICATION_JSON)
