@@ -12,7 +12,7 @@ import lombok.NoArgsConstructor;
 import lombok.experimental.SuperBuilder;
 
 @Entity
-@Table(name = DatabaseConstants.TableName.EVENT, schema = DatabaseConstants.SchemaName.SHIPPING)
+@Table(name = DatabaseConstants.TableName.EVENTS, schema = DatabaseConstants.SchemaName.SHIPPING)
 @SuperBuilder
 @NoArgsConstructor
 @Getter

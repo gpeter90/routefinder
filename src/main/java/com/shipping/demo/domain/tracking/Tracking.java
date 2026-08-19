@@ -14,7 +14,7 @@ import lombok.experimental.SuperBuilder;
 import java.time.LocalDateTime;
 
 @Entity
-@Table(name = DatabaseConstants.TableName.TRACKING, schema = DatabaseConstants.SchemaName.SHIPPING)
+@Table(name = DatabaseConstants.TableName.TRACKINGS, schema = DatabaseConstants.SchemaName.SHIPPING)
 @SuperBuilder
 @NoArgsConstructor
 @Getter

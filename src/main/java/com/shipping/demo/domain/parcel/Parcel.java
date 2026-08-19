@@ -10,7 +10,7 @@ import lombok.NoArgsConstructor;
 import lombok.experimental.SuperBuilder;
 
 @Entity
-@Table(name = DatabaseConstants.TableName.PARCEL, schema = DatabaseConstants.SchemaName.SHIPPING)
+@Table(name = DatabaseConstants.TableName.PARCELS, schema = DatabaseConstants.SchemaName.SHIPPING)
 @SuperBuilder
 @NoArgsConstructor
 @Getter

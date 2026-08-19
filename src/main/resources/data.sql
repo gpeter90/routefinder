@@ -42,3 +42,32 @@ INSERT INTO shipping.trackings (parcel_id, event_date, event_id) VALUES
     (4, '2026-08-06 10:30:00', 7),
     (5, '2026-08-05 10:00:00', 1),
     (5, '2026-08-05 15:00:00', 2);
+
+INSERT INTO airline.cities (city_name, country, continent) VALUES
+    ('Budapest', 'HU', 'Europe'),
+    ('London', 'GB', 'Europe'),
+    ('Paris', 'FR', 'Europe'),
+    ('Berlin', 'DE', 'Europe'),
+    ('Rome', 'IT', 'Europe'),
+    ('New York', 'US', 'Americas'),
+    ('Los Angeles', 'US', 'Americas'),
+    ('Toronto', 'CA', 'Americas'),
+    ('São Paulo', 'BR', 'Americas'),
+    ('Mexico City', 'MX', 'Americas');
+
+INSERT INTO airline.routes (departure_city_id, arrival_city_id, distance_km, cost_eur) VALUES
+    (1, 4, 689, 120),
+    (1, 5, 810, 150),
+    (4, 2, 932, 140),
+    (4, 3, 878, 130),
+    (2, 3, 344, 90),
+    (2, 6, 5570, 450),
+    (3, 5, 1105, 160),
+    (5, 9, 9170, 680),
+    (6, 8, 550, 110),
+    (6, 7, 3944, 320),
+    (6, 9, 7680, 580),
+    (7, 10, 2491, 280),
+    (8, 2, 5720, 460),
+    (9, 10, 7050, 520),
+    (10, 6, 3364, 300);

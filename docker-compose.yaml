@@ -1,10 +1,10 @@
 version: '3.9'
-name: shipping-foxpost
+name: shipping-fox
 services:
 
   shipping:
     container_name: shipping
-    image: docker.foxpost.com/shipping:latest
+    image: docker.gpeter.com/shipping:latest
     deploy:
       resources:
         limits:

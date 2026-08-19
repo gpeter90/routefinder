@@ -4,13 +4,16 @@ public class DatabaseConstants {
 
     public static final class SchemaName {
         public static final String SHIPPING = "shipping";
+        public static final String AIRLINE = "airline";
     }
 
     public static final class TableName {
-        public static final String CLIENT = "clients";
-        public static final String EVENT = "events";
-        public static final String PARCEL = "parcels";
-        public static final String TRACKING = "trackings";
+        public static final String CLIENTS = "clients";
+        public static final String EVENTS = "events";
+        public static final String PARCELS = "parcels";
+        public static final String TRACKINGS = "trackings";
+        public static final String CITIES = "cities";
+        public static final String ROUTES = "routes";
     }
 
     public static final class FieldName {
@@ -39,6 +42,19 @@ public class DatabaseConstants {
             public static final String PARCEL_ID = "parcel_id";
             public static final String EVENT_DATE = "event_date";
             public static final String EVENT_ID = "event_id";
+        }
+
+        public static final class City {
+            public static final String CITY_NAME = "city_name";
+            public static final String COUNTRY = "country";
+            public static final String CONTINENT = "continent";
+        }
+
+        public static final class Route {
+            public static final String DEPARTURE_CITY_ID = "departure_city_id";
+            public static final String ARRIVAL_CITY_ID = "arrival_city_id";
+            public static final String DISTANCE_KM = "distance_km";
+            public static final String COST_EUR = "cost_eur";
         }
     }
 

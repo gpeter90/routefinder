@@ -16,7 +16,7 @@ import org.springframework.web.context.request.WebRequest;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
 
 @ControllerAdvice
-public class ShippingExceptionHandler extends ResponseEntityExceptionHandler {
+public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
 
 
     @ExceptionHandler(BusinessLogicException.class)
@@ -31,6 +31,15 @@ public class ShippingExceptionHandler extends ResponseEntityExceptionHandler {
                         exception.getMessageVariableList() != null ? exception.getMessageVariableList() : null
                         )
                 );
+    }
+
+    @ExceptionHandler(NotFoundException.class)
+    @ResponseStatus(HttpStatus.NOT_FOUND)
+    public final ResponseEntity<ErrorResponse> handleNotFoundException(NotFoundException exception) {
+        return ResponseEntity
+                .status(HttpStatus.NOT_FOUND)
+                .contentType(MediaType.APPLICATION_JSON)
+                .body(new ErrorResponse(exception.getMessage()));
     }
 
     @ExceptionHandler(InvalidParameterException.class)
@@ -83,7 +92,6 @@ public class ShippingExceptionHandler extends ResponseEntityExceptionHandler {
     private String trunkErrorMessage(String errorMessage) {
         errorMessage = removeNestedExceptionMessagePart(errorMessage);
         errorMessage = removeDetailsMessagePart(errorMessage);
-        errorMessage = removeHatsClassesMessagePart(errorMessage);
         errorMessage = removeJavaClassesMessagePart(errorMessage);
         errorMessage = removeApostrophes(errorMessage);
         errorMessage = removeWhitespaces(errorMessage);
@@ -104,10 +112,6 @@ public class ShippingExceptionHandler extends ResponseEntityExceptionHandler {
             errorMessage = errorMessage.substring(0, startCharacterIndexForSubString);
         }
         return errorMessage;
-    }
-
-    private String removeHatsClassesMessagePart(String errorMessage) {
-        return errorMessage.replaceAll("of type `hu.(.*)`", "");
     }
 
     private String removeJavaClassesMessagePart(String errorMessage) {

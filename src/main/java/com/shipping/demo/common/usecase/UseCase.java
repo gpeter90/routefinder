@@ -4,6 +4,7 @@ import com.shipping.demo.common.exception.BusinessLogicException;
 import com.shipping.demo.common.exception.ConnectionException;
 import com.shipping.demo.common.exception.InvalidParameterException;
 import com.shipping.demo.common.exception.MandatoryFieldIsEmptyException;
+import com.shipping.demo.common.exception.NotFoundException;
 import com.shipping.demo.common.exception.TechnicalException;
 import com.shipping.demo.common.validator.JakartaValidator;
 import com.shipping.demo.common.validator.MandatoryFieldValidator;
@@ -48,6 +49,9 @@ public abstract class UseCase<
         } catch (ConnectionException connectionException) {
             logWarn(connectionException);
             throw connectionException;
+        } catch (NotFoundException notFoundException) {
+            logWarn(notFoundException);
+            throw notFoundException;
         } catch (Exception exception) {
             logError(exception);
             throw new TechnicalException(exception.getMessage());
