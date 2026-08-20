@@ -1,0 +1,27 @@
+package com.routefinder.usecase.getcities;
+
+import com.routefinder.common.usecase.UseCase;
+import com.routefinder.domain.cities.CityDto;
+import com.routefinder.domain.cities.CityService;
+import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.stereotype.Service;
+
+import java.util.List;
+
+@Slf4j
+@Service
+@RequiredArgsConstructor
+public class GetCitiesUseCase extends UseCase<Void, GetCitiesResponse> {
+
+    private final CityService cityService;
+
+    @Override
+    protected GetCitiesResponse executeBusinessLogic(Void request) {
+        List<CityDto> cities = cityService.findAll();
+
+        return GetCitiesResponse.builder()
+                .cities(cities)
+                .build();
+    }
+}
