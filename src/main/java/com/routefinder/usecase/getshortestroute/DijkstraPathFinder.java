@@ -68,9 +68,6 @@ public class DijkstraPathFinder {
         for (RouteDto route : routes) {
             adjacencyList.computeIfAbsent(route.getDepartureCityId(), cityId -> new ArrayList<>())
                     .add(new Edge(route.getArrivalCityId(), route.getDistanceKm(), route.getTravelTimeMin()));
-
-            adjacencyList.computeIfAbsent(route.getArrivalCityId(), cityId -> new ArrayList<>())
-                    .add(new Edge(route.getDepartureCityId(), route.getDistanceKm(), route.getTravelTimeMin()));
         }
 
         return adjacencyList;

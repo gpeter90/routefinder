@@ -22,7 +22,7 @@ An airline route finder application built with Spring Boot. Computes the least c
 The project follows a `Controller → UseCase → Service` layered architecture:
 
 ```text
-src/main/java/com/shipping/demo/
+src/main/java/com/routefinder/
 ├── common/
 │   ├── config/          # Security, OpenAPI configuration
 │   ├── domain/          # Base entity, domain service abstractions
@@ -34,8 +34,8 @@ src/main/java/com/shipping/demo/
 ├── controller/
 │   └── rest/            # REST controllers
 ├── domain/
-│   ├── city/            # City entity, DTO, repository, service
-│   └── route/           # Route entity, DTO, repository, service
+│   ├── cities/          # City entity, DTO, repository, service
+│   └── routes/          # Route entity, DTO, repository, service
 ├── usecase/
 │   ├── getcities/       # GetCitiesUseCase
 │   ├── getroutes/       # GetRoutesUseCase
@@ -90,7 +90,7 @@ Available at: `http://localhost:8080/swagger-ui.html` (requires Basic Auth)
 
 Base path: `/routefinder`
 
-The route finder models an airline's network as a bidirectional weighted graph (cities as nodes, routes as edges) and computes the least cost path using Dijkstra's algorithm. The cost of each route is its travel time in minutes. The database is seeded with 10 cities across Europe and the Americas and 15 connecting routes on startup.
+The route finder models an airline's network as a bidirectional weighted graph (cities as nodes, routes as edges) and computes the least cost path using Dijkstra's algorithm. The cost of each route is its travel time in minutes. The database is seeded with 10 cities across Europe and the Americas and 30 bidirectional routes (15 city pairs, both directions) on startup.
 
 ### Get all cities
 
@@ -145,6 +145,7 @@ Example response:
 | Condition | HTTP Status | Message |
 |---|---|---|
 | Missing `departureCityId` or `arrivalCityId` | 400 | Field is mandatory |
+| Invalid type (e.g., `departureCityId=abc`) | 400 | Invalid value for parameter 'departureCityId': must be a valid number |
 | `departureCityId` equals `arrivalCityId` | 400 | Departure and arrival cities must be different |
 | City ID not found in database | 404 | City not found |
 | No path exists between the two cities | 404 | No route found between the specified cities |

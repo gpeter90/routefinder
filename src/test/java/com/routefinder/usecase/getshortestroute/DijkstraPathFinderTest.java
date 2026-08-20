@@ -81,7 +81,9 @@ class DijkstraPathFinderTest {
     void shouldHandleBidirectionalRoutes() {
         List<RouteDto> routes = List.of(
                 buildRoute(1L, 2L, 500, 60),
-                buildRoute(2L, 3L, 400, 50)
+                buildRoute(2L, 1L, 500, 60),
+                buildRoute(2L, 3L, 400, 50),
+                buildRoute(3L, 2L, 400, 50)
         );
 
         DijkstraResult result = dijkstraPathFinder.findLeastCostPath(routes, 3L, 1L);
