@@ -19,7 +19,6 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
 @RequiredArgsConstructor
@@ -27,14 +26,13 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping(RouteFinderController.ROUTE_FINDER_API_PATH)
 @Tag(name = "Route Finder", description = "Airline route management and least cost path calculation using Dijkstra algorithm")
 public class RouteFinderController {
-    public static final String ROUTE_FINDER_API_PATH = "routefinder";
+    public static final String ROUTE_FINDER_API_PATH = "/routefinder";
 
     private final GetCitiesUseCase getCitiesUseCase;
     private final GetRoutesUseCase getRoutesUseCase;
     private final GetShortestRouteUseCase getShortestRouteUseCase;
 
     @GetMapping(value = "cities")
-    @ResponseStatus(HttpStatus.OK)
     @Operation(
             summary = "Get all cities",
             description = "Returns the list of all available cities in Europe and America"
@@ -50,7 +48,6 @@ public class RouteFinderController {
     }
 
     @GetMapping(value = "routes")
-    @ResponseStatus(HttpStatus.OK)
     @Operation(
             summary = "Get all routes",
             description = "Returns all available routes with departure city, arrival city, distance in km "
@@ -67,7 +64,6 @@ public class RouteFinderController {
     }
 
     @GetMapping(value = "shortest")
-    @ResponseStatus(HttpStatus.OK)
     @Operation(
             summary = "Find least cost route",
             description = "Finds the least cost route between two cities using Dijkstra algorithm. "
