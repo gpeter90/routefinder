@@ -9,7 +9,7 @@ RUN mv jdk-21 /opt/jdk-21.0.1
 ENV PATH=$PATH:/opt/jdk-21.0.1/bin
 
 #Install Maven
-RUN curl -L https://dlcdn.apache.org/maven/maven-3/3.9.9/binaries/apache-maven-3.9.9-bin.tar.gz -o maven.tar.gz
+RUN curl -fL https://archive.apache.org/dist/maven/maven-3/3.9.9/binaries/apache-maven-3.9.9-bin.tar.gz -o maven.tar.gz
 RUN tar xvf maven.tar.gz
 RUN mv apache-maven-3.9.9 /opt/maven
 ENV PATH=$PATH:/opt/maven/bin
